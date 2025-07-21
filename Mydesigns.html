@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Designs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 40px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #ffffff10;
+      border: 1px solid #ffffff30;
+      border-radius: 16px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .card:hover img {
+      transform: scale(1.05);
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-body h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #ffd700;
+    }
+
+    .card-body p {
+      font-size: 0.95rem;
+      color: #eee;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Designs</h1>
+
+  <div class="grid" id="designGallery">
+    <!-- JS Will Insert Cards Here -->
+  </div>
+
+  <script>
+    const designs = [
+      {
+        title: "Webpage UI - Products",
+        description: "A modern and minimal app design for e-commerce .",
+        image: "Products.png"
+      },
+      {
+        title: "Website Design - Portfolio",
+        description: "Responsive portfolio layout with animations and clean sections.",
+        image: "Desktop - 1.png"
+      },
+      {
+        title: "Landing Page - Bottle app",
+        description: "Concept for a vibrant water bottle app with home page and menus.",
+        image: "Desktop WEEQ.png"
+      },
+      { 
+        title: "Landing Page - website Launch",
+        description: "A hero-focused, bold design to showcase a website login features.",
+        image: "LOGIN UI.png"
+      }
+    ];
+
+    const gallery = document.getElementById('designGallery');
+
+    designs.forEach((design, index) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.style.animationDelay = `${index * 0.2}s`;
+      card.innerHTML = `
+        <img src="${design.image}" alt="${design.title}" />
+        <div class="card-body">
+          <h3>${design.title}</h3>
+          <p>${design.description}</p>
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
