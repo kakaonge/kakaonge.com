@@ -34,6 +34,7 @@
 
     .contact-container {
       display: flex;
+      flex-wrap: wrap;
       background-color: var(--medium-gray-card);
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -44,14 +45,15 @@
 
     .contact-info {
       flex: 1;
-      padding: 50px;
+      min-width: 300px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .contact-info h1 {
-      font-size: 4em;
+      font-size: 3em;
       font-weight: 700;
       margin-bottom: 20px;
       color: var(--white-text);
@@ -82,38 +84,44 @@
     .social-icons {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      padding: 20px;
-      text-align: center;
+      gap: 12px;
+      margin-top: 20px;
     }
 
     .social-icons .icon {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 16px;
       text-decoration: none;
       color: var(--white-text);
+      font-size: 1em;
+      gap: 10px;
       transition: transform 0.3s ease, color 0.3s ease;
+      word-break: break-word;
+    }
+
+    .social-icons .icon img {
+      width: 25px;
+      height: 25px;
+      flex-shrink: 0;
     }
 
     .social-icons .icon:hover {
       color: var(--dark-red);
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
 
     .contact-form {
       flex: 1;
+      min-width: 300px;
       background-color: var(--dark-red);
-      padding: 50px;
+      padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .contact-form h2 {
-      font-size: 2.5em;
+      font-size: 2em;
       font-weight: 600;
       margin-bottom: 30px;
       color: var(--white-text);
@@ -121,7 +129,7 @@
     }
 
     .form-group {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .form-group input,
@@ -134,23 +142,11 @@
       font-size: 1em;
       color: var(--dark-gray-bg);
       outline: none;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #888;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      background-color: var(--white-text);
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
     }
 
     .form-group textarea {
       resize: vertical;
-      min-height: 150px;
+      min-height: 120px;
     }
 
     .contact-form button {
@@ -160,7 +156,7 @@
       color: var(--white-text);
       border: none;
       border-radius: 8px;
-      font-size: 1.2em;
+      font-size: 1.1em;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
@@ -171,110 +167,26 @@
       transform: translateY(-2px);
     }
 
-    footer {
-      position: absolute;
-      bottom: 20px;
-      color: var(--text-gray);
-      font-size: 0.9em;
-      text-align: center;
-      width: 100%;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
       .contact-container {
         flex-direction: column;
       }
 
-      .contact-info,
-      .contact-form {
-        padding: 40px;
+      .contact-info, .contact-form {
+        padding: 25px;
       }
 
       .contact-info h1 {
-        font-size: 3.5em;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .contact-info,
-      .contact-form {
-        padding: 30px;
-      }
-
-      .contact-info h1 {
-        font-size: 2.8em;
-        margin-bottom: 15px;
-      }
-
-      .contact-info p {
-        font-size: 1em;
-        margin-bottom: 20px;
-      }
-
-      .info-item {
-        font-size: 1em;
-        margin-bottom: 15px;
-      }
-
-      .info-item span {
-        font-size: 1.3em;
-      }
-
-      .social-icons .icon {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-      }
-
-      .contact-form h2 {
         font-size: 2em;
-        margin-bottom: 20px;
-      }
-
-      .form-group {
-        margin-bottom: 18px;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        padding: 12px;
-        font-size: 0.9em;
-      }
-
-      .form-group textarea {
-        min-height: 120px;
-      }
-
-      .contact-form button {
-        padding: 12px;
-        font-size: 1em;
-      }
-
-      footer {
-        font-size: 0.8em;
-        bottom: 10px;
-      }
-    }
-
-    /* Removed incorrect override of flex-direction */
-    @media (max-width: 400px) {
-      .contact-info,
-      .contact-form {
-        padding: 20px;
-      }
-
-      .contact-info h1 {
-        font-size: 2.2em;
-      }
-
-      .social-icons {
-        gap: 15px;
-        margin-top: 20px;
-        align-items: center;
       }
 
       .social-icons .icon {
-        margin-bottom: 0;
+        font-size: 0.95em;
+      }
+
+      .social-icons .icon img {
+        width: 22px;
+        height: 22px;
       }
     }
   </style>
@@ -285,27 +197,25 @@
       <h1>Get In Touch</h1>
       <p>Have questions, need assistance, or want to share feedback? I'm here to help!</p>
 
-      <div>
-        <div class="info-item">
-          <span>&#9993;</span> <span>kakaonge22@gmail.com</span>
-        </div>
-        <div class="info-item">
-          <span>&#9906;</span> <span>Nairobi, Kenya.</span>
-        </div>
+      <div class="info-item">
+        <span>&#9993;</span> <span>kakaonge22@gmail.com</span>
+      </div>
+      <div class="info-item">
+        <span>&#9906;</span> <span>Nairobi, Kenya</span>
       </div>
 
       <div class="social-icons">
         <a class="icon" href="https://www.instagram.com/kakaonge/" title="Instagram" target="_blank">
-          <img src="instagram.png" width="25" height="25" alt="Instagram"> Instagram
+          <img src="instagram.png" alt="Instagram"> Instagram
         </a>
         <a class="icon" href="https://x.com/Kakaonge" title="X" target="_blank">
-          <img src="twitter.png" width="25" height="25" alt="X"> X
+          <img src="twitter.png" alt="X"> X
         </a>
         <a class="icon" href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn" target="_blank">
-          <img src="linkedin.png" width="25" height="25" alt="LinkedIn"> LinkedIn
+          <img src="linkedin.png" alt="LinkedIn"> LinkedIn
         </a>
-        <a class="icon" href="https://github.com/kakaonge" title="Github" target="_blank">
-          <img src="github.png" width="25" height="25" alt="Github"> Github
+        <a class="icon" href="https://github.com/kakaonge" title="GitHub" target="_blank">
+          <img src="github.png" alt="GitHub"> GitHub
         </a>
       </div>
     </div>
@@ -335,7 +245,7 @@
       const email = document.getElementById('email').value;
       const message = document.getElementById('message').value;
 
-      if (fullName.trim() === '' || email.trim() === '' || message.trim() === '') {
+      if (!fullName || !email || !message) {
         alert('Please fill in all fields.');
         return;
       }
@@ -345,40 +255,14 @@
         return;
       }
 
-      console.log('Form Submitted!');
-      console.log('Full Name:', fullName);
-      console.log('Email:', email);
-      console.log('Message:', message);
-
-      alert('Thank you for your message, ' + fullName + '! I will get back to you soon.');
-
+      alert(`Thank you for your message, ${fullName}! I will get back to you soon.`);
       document.getElementById('contactForm').reset();
     });
 
     function validateEmail(email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(String(email).toLowerCase());
     }
-
-    document.querySelectorAll('.social-icons .icon').forEach(icon => {
-      icon.addEventListener('click', function() {
-        const iconText = this.textContent.trim();
-        let url = '';
-        if (iconText.includes('X')) {
-          url = 'https://x.com/Kakaonge';
-        } else if (iconText.includes('Instagram')) {
-          url = 'https://www.instagram.com/kakaonge';
-        } else if (iconText.includes('LinkedIn')) {
-          url = 'https://ke.linkedin.com/in/kaka-onge';
-        } else if (iconText.includes('Github')) {
-          url = 'https://github.com/kakaonge';
-        }
-
-        if (url) {
-          window.open(url, '_blank');
-        }
-      });
-    });
   </script>
 </body>
 </html>
