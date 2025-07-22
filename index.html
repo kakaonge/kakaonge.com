@@ -3,223 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaka Onge Portfolio</title>
+  <title>Kaka Onge - Creative Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #feca00;
-      color: #000;
-      height: 100vh;
-      overflow: auto;
-      position: relative;
+      font-family: 'Poppins', sans-serif;
+      background: #ffcc00; /* Deep yellow */
+      color: black;
+      line-height: 1.6;
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .branding img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .main {
+      padding: 2rem;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      flex: 1;
+    }
+    .headline {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 3rem;
+      color: #b31a1a;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    .designer-text {
+      font-size: 2.8rem;
+      color: #b31a1a;
+      animation: fadeInUp 2s ease-out forwards;
+      font-weight: 700;
+    }
+    .roles {
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      color: #444;
+    }
+    .availability {
+      margin-top: 1rem;
+      color: #b31a1a;
+      font-weight: bold;
+    }
+    .description {
+      max-width: 700px;
+      margin: 2rem auto;
+      font-size: 1rem;
       text-align: center;
-      flex-direction: column;
+      color: #222;
     }
-
-    h1 {
-      font-size: 11vw;
-      font-weight: 900;
-      text-shadow: 2px 2px #00000033;
-      animation: scaleIn 1s ease forwards;
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-
-    h1 span {
-      color: black;
-    }
-
-    p {
-      font-size: 2.3rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      opacity: 0;
-      animation: fadeInDown 1s ease forwards;
-      position: relative;
-      left: 0px;
-    }
-
     .btn {
       background: red;
-      color: white;
-      padding: 12px 24px;
-      font-weight: bold;
+      color: #fff;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      opacity: 0;
-      animation: fadeInUp 1s ease 0.5s forwards;
-      position: relative;
-      margin-top: 10px;
-    }
-
-    .btn:hover {
-      background: #d00000;
-      transform: scale(1.05);
-    }
-
-    .vertical-text {
-      position: absolute;
-      transform: rotate(-90deg);
-      transform-origin: left top;
-      font-weight: bold;
-    }
-
-    .left-label {
-      left: 10px;
-      top: 60%;
-    }
-
-    .right-label {
-      right: 10px;
-      top: 60%;
-    }
-
-    .socials {
-      position: absolute;
-      right: 20px;
-      bottom: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .socials a {
-      font-size: 20px;
-      text-decoration: none;
-      color: black;
-      transition: 0.3s;
-    }
-
-    .socials a:hover {
-      transform: scale(1.2);
-    }
-
-    .dot {
-      width: 13px;
-      height: 13px;
-      background: white;
-      border-radius: 50%;
-      position: absolute;
-    }
-
-    .top-left-dot {
-      top: 30px;
-      left: 30px;
-    }
-
-    .bottom-right-dot {
-      bottom: 30px;
-      right: 30px;
-    }
-
-    .get-in-touch {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      text-align: left;
-      background: #fff;
-      padding: 15px 20px;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       border-radius: 12px;
-      color: #000;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-      animation: fadeInUp 1.5s ease 1s forwards;
-      opacity: 0;
-    }
-
-    .get-in-touch h3 {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-      color: blue;
-    }
-
-    .get-in-touch p {
-      font-size: 0.95rem;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    .get-in-touch a {
-      color: blue;
-      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.3s;
       font-weight: bold;
     }
-
-    .get-in-touch a:hover {
-      text-decoration: underline;
+    .btn:hover {
+      background: darkred;
     }
 
-    @keyframes fadeInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Socials */
+    .socials {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: black;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: red;
     }
 
     @keyframes fadeInUp {
-      0% {
+      from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
-      100% {
+      to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
-    @keyframes scaleIn {
-      0% {
-        transform: scale(0.8);
-        opacity: 0;
+    @media (max-width: 600px) {
+      .headline {
+        font-size: 2rem;
+        flex-direction: column;
       }
-      100% {
-        transform: scale(1);
-        opacity: 1;
+      .designer-text {
+        font-size: 2.2rem;
       }
     }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="dot top-left-dot"></div>
-  <div class="dot top-right-dot"></div>
-  <div class="dot top"></div>
-  <div class="dot center"></div>
+  <header>
+    <div class="branding">
+      <img src="favicon.ico" alt="Kaka Onge Logo" />
+      <div>Kaka Onge</div>
+    </div>
+    <div><a href="contactme.html" style="text-decoration: none; color: black">Contact Me</a></div>
+  </header>
 
-  <div>
-    <p>Live <span style="color: black">,</span> <span style="color: white">Work</span> <span style="color: black">& Create</span></p>
-    <h1>Portfolio<span>.</span></h1>
-    <a href="About Me.html"><button class="btn">About Kaka Onge.</button></a>
-  </div>
-
-  <div class="vertical-text left-label">By: Kaka Onge.</div>
-  <div class="vertical-text right-label">2025</div>
+  <main class="main">
+    <div class="headline">
+      <span>Creative</span>
+      <span>Developer</span>
+      <span>/</span>
+      <span class="designer-text">Designer</span>
+    </div>
+    <div class="roles">Developer · UI/UX Designer · Photograher · Freelancer</div>
+    <div class="availability">● Available for work</div>
+    <div class="description">
+      I am a developer and UI/UX designer based in Nairobi, Kenya. Are you looking for a creative developer? Then rely on me for design, development, and digital product management. As a freelancer, I also collaborate with creative agencies.
+    </div>
+    <div class="buttons">
+        <a href="About Me.html"><button class="btn" onclick="alert('More about Kaka Onge coming soon!')">About Kaka Onge</button>
+            <a href="contactme.html"><button class="btn" onclick="window.location.href='mailto:kakaonge@example.com'">Get in Touch</button>
+    </div>
+  </main>
 
   <div class="socials">
     <a href="https://x.com/Kakaonge" title="Twitter"><img src="twitter.png" width="25" height="25"></a>
     <a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" width="25" height="25"></a>
     <a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" width="25" height="25"></a>
     <a href="https://github.com/kakaonge" title="github"><img src="github.png" width="25" height="25"></a>
-  </div>
-
-  <!-- ✅ Get In Touch Section -->
-  <div class="get-in-touch">
-    <h3>Get In Touch</h3>
-    <p>Email: <a href="mailto:kakaonge@gmail.com">kakaonge22@gmail.com</a><br />
-      Get in touch: <a href="contactme.html" target="_blank"> Click Here</a>
-   </p>
-   
   </div>
 </body>
 </html>
