@@ -80,18 +80,20 @@
         }
 
         .social-icons {
-            margin-top: 40px;
-            display: flex;
-            flex-direction: column; /* Stack icons vertically */
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    text-align: center;
+}
 
-        .social-icons .icon {
-            font-size: 2em;
-            margin-bottom: 15px; /* Spacing between icons */
-            color: var(--white-text);
-            cursor: pointer;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+.social-icons .icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
 
         .social-icons .icon:hover {
             color: var(--dark-red); /* Highlight on hover */
