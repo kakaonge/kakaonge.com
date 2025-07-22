@@ -34,6 +34,7 @@
 
     .contact-container {
       display: flex;
+      flex-direction: row;
       flex-wrap: wrap;
       background-color: var(--medium-gray-card);
       border-radius: 15px;
@@ -43,21 +44,22 @@
       overflow: hidden;
     }
 
-    .contact-info {
-      flex: 1;
-      min-width: 300px;
+    .contact-info, .contact-form {
+      flex: 1 1 100%;
       padding: 40px;
+    }
+
+    .contact-info {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
     .contact-info h1 {
-      font-size: 3em;
+      font-size: 2.5em;
       font-weight: 700;
       margin-bottom: 20px;
       color: var(--white-text);
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .contact-info p {
@@ -70,14 +72,14 @@
     .info-item {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
-      font-size: 1.1em;
+      margin-bottom: 15px;
+      font-size: 1.05em;
       color: var(--text-gray);
     }
 
-    .info-item span {
-      margin-right: 15px;
-      font-size: 1.5em;
+    .info-item span:first-child {
+      margin-right: 10px;
+      font-size: 1.4em;
       color: var(--white-text);
     }
 
@@ -96,12 +98,11 @@
       font-size: 1em;
       gap: 10px;
       transition: transform 0.3s ease, color 0.3s ease;
-      word-break: break-word;
     }
 
     .social-icons .icon img {
-      width: 25px;
-      height: 25px;
+      width: 24px;
+      height: 24px;
       flex-shrink: 0;
     }
 
@@ -111,10 +112,7 @@
     }
 
     .contact-form {
-      flex: 1;
-      min-width: 300px;
       background-color: var(--dark-red);
-      padding: 40px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -167,26 +165,29 @@
       transform: translateY(-2px);
     }
 
-    @media (max-width: 600px) {
+    @media (min-width: 768px) {
       .contact-container {
-        flex-direction: column;
+        flex-direction: row;
       }
 
       .contact-info, .contact-form {
-        padding: 25px;
+        flex: 1 1 50%;
+        padding: 40px;
       }
+    }
 
+    @media (max-width: 767px) {
       .contact-info h1 {
         font-size: 2em;
       }
 
-      .social-icons .icon {
-        font-size: 0.95em;
+      .social-icons .icon img {
+        width: 20px;
+        height: 20px;
       }
 
-      .social-icons .icon img {
-        width: 22px;
-        height: 22px;
+      .contact-form h2 {
+        font-size: 1.6em;
       }
     }
   </style>
@@ -205,16 +206,16 @@
       </div>
 
       <div class="social-icons">
-        <a class="icon" href="https://www.instagram.com/kakaonge/" title="Instagram" target="_blank">
+        <a class="icon" href="https://www.instagram.com/kakaonge/" target="_blank">
           <img src="instagram.png" alt="Instagram"> Instagram
         </a>
-        <a class="icon" href="https://x.com/Kakaonge" title="X" target="_blank">
+        <a class="icon" href="https://x.com/Kakaonge" target="_blank">
           <img src="twitter.png" alt="X"> X
         </a>
-        <a class="icon" href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn" target="_blank">
+        <a class="icon" href="https://ke.linkedin.com/in/kaka-onge" target="_blank">
           <img src="linkedin.png" alt="LinkedIn"> LinkedIn
         </a>
-        <a class="icon" href="https://github.com/kakaonge" title="GitHub" target="_blank">
+        <a class="icon" href="https://github.com/kakaonge" target="_blank">
           <img src="github.png" alt="GitHub"> GitHub
         </a>
       </div>
