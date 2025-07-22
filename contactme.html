@@ -81,18 +81,17 @@
 
         .social-icons {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow-x: auto;
+    white-space: nowrap;
     gap: 15px;
     padding: 10px;
-    text-align: center;
+    scroll-snap-type: x mandatory;
 }
 
 .social-icons .icon {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
-    font-size: 14px;
+    scroll-snap-align: start;
 }
 
         .social-icons .icon:hover {
