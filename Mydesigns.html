@@ -79,25 +79,54 @@
     }
 
     @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Lightbox styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      display: none;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      animation: fadeInImage 0.3s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @keyframes fadeInImage {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -109,11 +138,17 @@
     <!-- JS Will Insert Cards Here -->
   </div>
 
+  <!-- Lightbox modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightboxClose">&times;</span>
+    <img id="lightboxImage" src="" alt="Full View">
+  </div>
+
   <script>
     const designs = [
       {
         title: "Webpage UI - Products",
-        description: "A modern and minimal app design for e-commerce .",
+        description: "A modern and minimal app design for e-commerce.",
         image: "Products.png"
       },
       {
@@ -122,8 +157,8 @@
         image: "Desktop - 1.png"
       },
       {
-        title: "Home Page - Car rental ",
-        description: "A modern  design for a car rental website.",
+        title: "Home Page - Car rental",
+        description: "A modern design for a car rental website.",
         image: "Desk.png"
       },
       {
@@ -131,14 +166,17 @@
         description: "Concept for a vibrant water bottle app with home page and menus.",
         image: "Desktop WEEQ.png"
       },
-      { 
-        title: "Landing Page - website Launch",
-        description: "A hero-focused, bold design to showcase a website login features.",
+      {
+        title: "Landing Page - Website Launch",
+        description: "A hero-focused, bold design to showcase website login features.",
         image: "LOGIN UI.png"
       }
     ];
 
     const gallery = document.getElementById('designGallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
 
     designs.forEach((design, index) => {
       const card = document.createElement('div');
@@ -151,7 +189,28 @@
           <p>${design.description}</p>
         </div>
       `;
+
+      // Add image click handler
+      card.querySelector('img').addEventListener('click', () => {
+        lightboxImage.src = design.image;
+        lightbox.classList.add('active');
+      });
+
       gallery.appendChild(card);
+    });
+
+    // Close lightbox
+    lightboxClose.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImage.src = "";
+    });
+
+    // Close when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('active');
+        lightboxImage.src = "";
+      }
     });
   </script>
 
