@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Preloader</title>
+  <style>
+    /* Fullscreen loader */  
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: whitesmoke;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease;
+    }
+
+    /* Logo spin animation */
+    #preloader img {
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0%   { transform: rotate(0deg) scale(1); }
+      50%  { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    /* Zoom-out animation */
+    .zoom-out {
+      animation: zoomOut 1s forwards;
+    }
+
+    @keyframes zoomOut {
+      0%   { transform: scale(1); opacity: 1; }
+      100% { transform: scale(15); opacity: 0; } /* bigger zoom */
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <img src="favicon.ico" alt="Logo" id="logo">
+  </div>
+
+  <!-- Main content -->
+  <div id="content" style="display:none;">
+    <h1>Welcome to My Portfolio 🚀</h1>
+    <p>This is the main site content.</p>
+  </div>
+
+  <script>
+    // Wait for 4 seconds before showing the portfolio
+    window.addEventListener("load", () => {
+      const preloader = document.getElementById("preloader");
+      const logo = document.getElementById("logo");
+      const content = document.getElementById("content");
+
+      setTimeout(() => {
+        // Add zoom-out animation to logo
+        logo.classList.add("zoom-out");
+
+        // After zoom-out, hide preloader and show content
+        setTimeout(() => {
+          preloader.style.display = "none";
+          content.style.display = "block";
+        }, 1000); // match zoom-out duration
+      }, 3000); // 3 seconds
+    });
+  </script>
+</body>
+</html>
