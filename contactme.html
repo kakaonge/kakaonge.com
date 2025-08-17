@@ -2,109 +2,295 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaka Onge - Creative Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me - Kaka Onge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-bg: #111;
-      --secondary-bg: #1a1a1a;
-      --white-text: #fff;
-      --gray-text: #bbb;
-      --dark-red: #c0392b;
+      --dark-gray-bg: #4a4a4a;
+      --medium-gray-card: #616161;
+      --dark-red: #8b0000;
+      --light-gray-input: #dcdcdc;
+      --white-text: #ffffff;
+      --text-gray: #b0b0b0;
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: var(--primary-bg);
-      color: var(--white-text);
+      background-color: var(--dark-gray-bg);
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
+      color: var(--white-text);
       padding: 20px;
     }
 
-    .container {
-      text-align: center;
+    .contact-container {
+      display: flex;
+      background-color: var(--medium-gray-card);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      max-width: 1000px;
+      width: 100%;
+      overflow: hidden;
     }
 
-    h1 {
-      font-size: 2.5em;
+    .contact-info {
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-info h1 {
+      font-size: 4em;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      color: var(--white-text);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
-    h2 {
-      font-size: 1.3em;
-      font-weight: 400;
-      color: var(--gray-text);
-      margin-bottom: 40px;
+    .contact-info p {
+      font-size: 1.1em;
+      color: var(--text-gray);
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
 
-    /* Social Icons */
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      color: var(--text-gray);
+    }
+
+    .info-item span {
+      margin-right: 15px;
+      font-size: 1.5em;
+      color: var(--white-text);
+    }
+
+    /* === Socials: ALL VERTICAL (list stacks; icon above label) === */
     .social-icons {
       margin-top: 40px;
       display: flex;
-      flex-direction: column;   /* ✅ vertical stack */
-      justify-content: center;
-      align-items: center;
-      gap: 25px;                /* space between each icon */
+      flex-direction: column;    /* stack the four items vertically */
+      align-items: flex-start;   /* left-align each item; change to center if you prefer */
+      gap: 18px;                 /* space between items */
     }
 
     .social-icons .icon {
-      display: flex;
-      flex-direction: column;   /* icon above text */
-      align-items: center;
-      justify-content: center;
+      display: inline-flex;
+      flex-direction: column;    /* icon above text */
+      align-items: center;       /* center icon + label as a block */
+      gap: 8px;                  /* space between icon and label */
       font-size: 1.1em;
       color: var(--white-text);
       cursor: pointer;
       transition: color 0.3s ease, transform 0.3s ease;
       text-align: center;
+      margin-bottom: 0;
     }
 
     .social-icons .icon img {
-      margin-bottom: 8px;       /* space between icon and text */
-      width: 30px;
-      height: 30px;
+      display: block;
+      width: 25px;
+      height: 25px;
+      margin: 0;
     }
 
     .social-icons .icon:hover {
       color: var(--dark-red);
-      transform: scale(1.1);
+      transform: scale(1.05);
+    }
+    /* === end socials === */
+
+    .contact-form {
+      flex: 1;
+      background-color: var(--dark-red);
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-form h2 {
+      font-size: 2.5em;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: var(--white-text);
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: var(--light-gray-input);
+      font-size: 1em;
+      color: var(--dark-gray-bg);
+      outline: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #888;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      background-color: var(--white-text);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 15px;
+      background-color: #000;
+      color: var(--white-text);
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #333;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      color: var(--text-gray);
+      font-size: 0.9em;
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (max-width: 900px) {
+      .contact-container {
+        flex-direction: column;
+      }
+      .contact-info,
+      .contact-form {
+        padding: 40px;
+      }
+      .contact-info h1 {
+        font-size: 3.5em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-info,
+      .contact-form {
+        padding: 30px;
+      }
+      .contact-info h1 {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+      }
+      .contact-info p {
+        font-size: 1em;
+        margin-bottom: 20px;
+      }
+      .info-item {
+        font-size: 1em;
+        margin-bottom: 15px;
+      }
+      .info-item span {
+        font-size: 1.3em;
+      }
+      .contact-form h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-group input,
+      .form-group textarea {
+        padding: 12px;
+        font-size: 0.9em;
+      }
+      .form-group textarea {
+        min-height: 120px;
+      }
+      .contact-form button {
+        padding: 12px;
+        font-size: 1em;
+      }
+      footer {
+        font-size: 0.8em;
+        bottom: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Kaka Onge</h1>
-    <h2>Creative Developer</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h1>Get In Touch</h1>
+      <p>Have questions, need assistance, or want to share feedback? I'm here to help!</p>
+      <div>
+        <div class="info-item">
+          <span>&#9993;</span> <span>kakaonge22@gmail.com</span>
+        </div>
+        <div class="info-item">
+          <span>&#9906;</span> <span>Nairobi, Kenya.</span>
+        </div>
+      </div>
+      <div class="social-icons">
+        <span class="icon"><a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" width="25" height="25" alt="Instagram"></a> Instagram</span>
+        <span class="icon"><a href="https://x.com/Kakaonge" title="Twitter/X"><img src="twitter.png" width="25" height="25" alt="X"></a> X</span>
+        <span class="icon"><a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" width="25" height="25" alt="LinkedIn"></a> LinkedIn</span>
+        <span class="icon"><a href="https://github.com/kakaonge" title="Github"><img src="github.png" width="25" height="25" alt="Github"></a> Github</span>
+      </div>
+    </div>
 
-    <div class="social-icons">
-      <span class="icon">
-        <img src="instagram.png" alt="Instagram">
-        Instagram
-      </span>
-      <span class="icon">
-        <img src="x.png" alt="X">
-        X
-      </span>
-      <span class="icon">
-        <img src="linkedin.png" alt="LinkedIn">
-        LinkedIn
-      </span>
-      <span class="icon">
-        <img src="github.png" alt="GitHub">
-        GitHub
-      </span>
+    <!-- ✅ Form with FormSubmit -->
+    <div class="contact-form">
+      <h2>Send a Message</h2>
+      <form action="https://formsubmit.co/kakaonge22@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New message from your website!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Thanks for contacting me! I will get back to you shortly.">
+
+        <div class="form-group">
+          <input type="text" name="Full Name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="Email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="Message" placeholder="Your Message..." required></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
 </body>
