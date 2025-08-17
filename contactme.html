@@ -79,36 +79,55 @@
       color: var(--white-text);
     }
 
-    /* === FIX: socials always horizontal, no wrapping === */
+    /* === Socials: items stay in one row; icon above label for each === */
     .social-icons {
       margin-top: 40px;
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;   /* change to center if you prefer */
+      flex-direction: row;       /* the four items side-by-side */
+      justify-content: flex-start;
       align-items: center;
       gap: 25px;
-      flex-wrap: nowrap;             /* keep all four on one line */
-      overflow-x: auto;              /* avoid breaking on very small screens */
+      flex-wrap: nowrap;         /* keep all four on one line */
+      overflow-x: auto;          /* horizontal scroll on very small screens */
       -webkit-overflow-scrolling: touch;
+      padding-bottom: 4px;       /* room for mobile scrollbar */
     }
 
     .social-icons .icon {
-      display: inline-flex;          /* make each item a horizontal unit */
+      display: inline-flex;      /* each item is a flex column block */
+      flex-direction: column;    /* icon above text */
       align-items: center;
-      gap: 8px;                      /* space between img and text */
+      justify-content: center;
+      gap: 8px;                  /* space between icon and label */
       font-size: 1.1em;
       color: var(--white-text);
       cursor: pointer;
       transition: color 0.3s ease, transform 0.3s ease;
-      white-space: nowrap;           /* keep label with icon */
-      margin-bottom: 0;              /* remove vertical spacing */
+      text-align: center;
+      white-space: nowrap;       /* keep label from wrapping */
+      margin-bottom: 0;
+    }
+
+    .social-icons .icon a {
+      display: inline-flex;      /* ensure the <a> (image) behaves as a block in the column */
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .social-icons .icon img {
+      display: block;
+      width: 25px;
+      height: 25px;
+      margin: 0;                 /* no side margin; stacked vertically now */
     }
 
     .social-icons .icon:hover {
       color: var(--dark-red);
       transform: scale(1.05);
     }
-    /* === end socials fix === */
+    /* === end socials === */
 
     .contact-form {
       flex: 1;
@@ -245,8 +264,7 @@
       }
     }
 
-    /* Removed the old @media(max-width:400px) block that flipped socials,
-       because they're now always horizontal. */
+    /* No extra media rule needed — socials stay vertical per item on all sizes */
   </style>
 </head>
 <body>
