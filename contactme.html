@@ -79,33 +79,30 @@
       color: var(--white-text);
     }
 
-    /* === Socials: ALL VERTICAL (list stacks; icon above label) === */
+    /* === Socials: vertical list, name left of icon === */
     .social-icons {
       margin-top: 40px;
       display: flex;
-      flex-direction: column;    /* stack the four items vertically */
-      align-items: flex-start;   /* left-align each item; change to center if you prefer */
-      gap: 18px;                 /* space between items */
+      flex-direction: column;  /* stack vertically */
+      align-items: flex-start;
+      gap: 18px;
     }
 
     .social-icons .icon {
       display: inline-flex;
-      flex-direction: column;    /* icon above text */
-      align-items: center;       /* center icon + label as a block */
-      gap: 8px;                  /* space between icon and label */
+      flex-direction: row;     /* row = name + icon */
+      align-items: center;
+      gap: 8px;                /* space between name and icon */
       font-size: 1.1em;
       color: var(--white-text);
       cursor: pointer;
       transition: color 0.3s ease, transform 0.3s ease;
-      text-align: center;
-      margin-bottom: 0;
     }
 
     .social-icons .icon img {
       display: block;
       width: 25px;
       height: 25px;
-      margin: 0;
     }
 
     .social-icons .icon:hover {
@@ -264,14 +261,13 @@
         </div>
       </div>
       <div class="social-icons">
-        <span class="icon"><a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" width="25" height="25" alt="Instagram"></a> Instagram</span>
-        <span class="icon"><a href="https://x.com/Kakaonge" title="Twitter/X"><img src="twitter.png" width="25" height="25" alt="X"></a> X</span>
-        <span class="icon"><a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" width="25" height="25" alt="LinkedIn"></a> LinkedIn</span>
-        <span class="icon"><a href="https://github.com/kakaonge" title="Github"><img src="github.png" width="25" height="25" alt="Github"></a> Github</span>
+        <span class="icon">Instagram <a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" alt="Instagram"></a></span>
+        <span class="icon">X <a href="https://x.com/Kakaonge" title="Twitter/X"><img src="twitter.png" alt="X"></a></span>
+        <span class="icon">LinkedIn <a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a></span>
+        <span class="icon">Github <a href="https://github.com/kakaonge" title="Github"><img src="github.png" alt="Github"></a></span>
       </div>
     </div>
 
-    <!-- ✅ Form with FormSubmit -->
     <div class="contact-form">
       <h2>Send a Message</h2>
       <form action="https://formsubmit.co/kakaonge22@gmail.com" method="POST">
