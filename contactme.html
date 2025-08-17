@@ -79,30 +79,29 @@
       color: var(--white-text);
     }
 
-    /* ✅ Social Icons Horizontal */
+    /* ✅ Social Icons in one row */
     .social-icons {
       margin-top: 40px;
       display: flex;
-      flex-direction: row;
       justify-content: flex-start;
       gap: 25px;
       flex-wrap: wrap;
     }
 
-    .social-icons .icon {
+    .social-icons a {
       display: flex;
       align-items: center;
-      font-size: 1.1em;
+      text-decoration: none;
       color: var(--white-text);
-      cursor: pointer;
+      font-size: 1.1em;
       transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    .social-icons .icon img {
+    .social-icons a img {
       margin-right: 8px;
     }
 
-    .social-icons .icon:hover {
+    .social-icons a:hover {
       color: var(--dark-red);
       transform: scale(1.05);
     }
@@ -257,10 +256,10 @@
         </div>
       </div>
       <div class="social-icons">
-        <span class="icon"><a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" width="25" height="25"></a> Instagram</span>
-        <span class="icon"><a href="https://x.com/Kakaonge" title="Twitter"><img src="twitter.png" width="25" height="25"></a> X</span>
-        <span class="icon"><a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" width="25" height="25"></a> LinkedIn</span>
-        <span class="icon"><a href="https://github.com/kakaonge" title="Github"><img src="github.png" width="25" height="25"></a> Github</span>
+        <a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" width="25" height="25">Instagram</a>
+        <a href="https://x.com/Kakaonge" title="Twitter"><img src="twitter.png" width="25" height="25">X</a>
+        <a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" width="25" height="25">LinkedIn</a>
+        <a href="https://github.com/kakaonge" title="Github"><img src="github.png" width="25" height="25">Github</a>
       </div>
     </div>
 
