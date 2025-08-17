@@ -79,20 +79,19 @@
       color: var(--white-text);
     }
 
-    /* === Socials: vertical list, name left of icon === */
+    /* === Socials: vertical list, icon first then name === */
     .social-icons {
       margin-top: 40px;
       display: flex;
-      flex-direction: column;  /* stack vertically */
+      flex-direction: column;
       align-items: flex-start;
       gap: 18px;
     }
 
     .social-icons .icon {
       display: inline-flex;
-      flex-direction: row;     /* row = name + icon */
       align-items: center;
-      gap: 8px;                /* space between name and icon */
+      gap: 8px;   /* space between icon and name */
       font-size: 1.1em;
       color: var(--white-text);
       cursor: pointer;
@@ -260,11 +259,13 @@
           <span>&#9906;</span> <span>Nairobi, Kenya.</span>
         </div>
       </div>
+
+      <!-- ✅ Icon first then name -->
       <div class="social-icons">
-        <span class="icon">Instagram <a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" alt="Instagram"></a></span>
-        <span class="icon">X <a href="https://x.com/Kakaonge" title="Twitter/X"><img src="twitter.png" alt="X"></a></span>
-        <span class="icon">LinkedIn <a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a></span>
-        <span class="icon">Github <a href="https://github.com/kakaonge" title="Github"><img src="github.png" alt="Github"></a></span>
+        <span class="icon"><a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" alt="Instagram"></a> Instagram</span>
+        <span class="icon"><a href="https://x.com/Kakaonge" title="Twitter/X"><img src="twitter.png" alt="X"></a> X</span>
+        <span class="icon"><a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" alt="LinkedIn"></a> LinkedIn</span>
+        <span class="icon"><a href="https://github.com/kakaonge" title="Github"><img src="github.png" alt="Github"></a> Github</span>
       </div>
     </div>
 
