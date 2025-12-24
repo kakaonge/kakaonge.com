@@ -147,66 +147,43 @@
     }
 
     .tool-logos {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0 10px;
-}
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 0 10px;
+    }
 
-.tool-logos img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  opacity: 0.9;
-}
-.tool-logos img:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
+    .tool-logos img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      opacity: 0.9;
+    }
 
-/* Optional: adjust size slightly for very small screens */
-@media (max-width: 480px) {
-  .tool-logos img {
-    width: 32px;
-    height: 32px;
-  }
-}
+    .tool-logos img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
 
-
-   @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
+    @media (max-width: 480px) {
+      .tool-logos img {
+        width: 32px;
+        height: 32px;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media screen and (min-width: 768px) {
-      .portfolio-links {
-        flex-direction: column;
-      }
-
-      .socials {
-        margin-bottom: 30px;
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -222,22 +199,24 @@
   </div>
 
   <div class="section">
-    <p>Hello, I’m Kaka Onge, a creative and versatile professional with a passion for storytelling through visuals, design, and code. My work bridges the gap between art and technology, creating seamless user experiences, impactful imagery, and elegant digital solutions.</p>
+    <h2>The World of Kaka Onge</h2>
+    <p>Hello, I’m Kaka Onge, a creative and versatile professional dedicated to telling compelling stories through visuals, design, and code. My work exists at the intersection of art and technology, where creativity meets functionality to produce experiences that are both aesthetically striking and purposefully designed. I strive to craft seamless user experiences, capture impactful imagery, and build elegant digital solutions that resonate with audiences, inspire engagement, and leave a lasting impression. By combining technical expertise with artistic vision, I transform ideas into meaningful, tangible outcomes across photography, design, and development projects.</p>
   </div>
 
   <div class="section">
-    <h2>Photography</h2>
-    <p>Through my lens, I capture moments that speak louder than words. From vibrant landscapes to human emotions, my photography is about freezing time to tell meaningful stories. I specialize in:</p>
+    <h2>Photography & Videography</h2>
+    <p>Through my lens, I capture moments that convey emotion, narrative, and meaning, telling stories that resonate beyond words. My photography focuses on observing, understanding, and immortalizing the world around me from the vibrancy of landscapes to the depth of human emotions. Every shot is intentional, aiming to create a connection between the subject and the viewer while preserving the authenticity of the moment.</p>
     <ul>
-      <li>Portraits</li>
-      <li>Events & Lifestyle Photography</li>
-      <li>Nature & Street Photography</li>
+      <li>Portraits — Capturing the personality, mood, and essence of individuals through expressive and thoughtful compositions.</li>
+      <li>Events & Lifestyle Photography — Documenting real-life experiences, celebrations, and everyday moments with authenticity and storytelling flair</li>
+      <li>Creative Photography — Pushing artistic boundaries by experimenting with concepts, lighting, angles, and post-processing to craft unique and memorable visual stories.</li>
+      <li>Nature & Street Photography — Exploring the beauty of the natural and urban environment, capturing candid moments and striking visuals that reveal hidden narratives.</li>
     </ul>
   </div>
 
   <div class="section">
     <h2>UI/UX Design</h2>
-    <p>I design interfaces that prioritize user experience and aesthetics. My approach combines research-driven decisions with creative flair, ensuring every product I create feels intuitive and engaging.</p>
+    <p>Designing inclusive, device-adaptive interfaces that prioritize usability, accessibility, and seamless user experiences across all platforms. I focus on creating designs that are intuitive, engaging, and functional for diverse audiences, ensuring every user can navigate and interact effortlessly. By combining responsive layouts, accessibility best practices, and thoughtful interaction patterns, I deliver digital experiences that are both visually polished and highly usable, enhancing engagement and satisfaction for every user.</p>
     <ul>
       <li>Wireframing & Prototyping</li>
       <li>Usability Testing</li>
@@ -246,47 +225,85 @@
   </div>
 
   <div class="section">
-    <h2>Code</h2>
-    <p>I translate ideas into functional and efficient code. With experience in front-end and back-end development, I enjoy crafting websites, apps, and digital systems that solve real-world problems.</p>
+    <h2>Code & Skills</h2>
+    <p>I translate ideas into functional, efficient, and scalable code while bringing additional creative problem-solving skills to every project. My development approach focuses on clean architecture, performance, and user-centered design to ensure reliable and maintainable digital solutions. My skill set includes:</p>
     <ul>
       <li>Front-end: HTML, CSS, JavaScript</li>
+      <p></p>Building responsive, interactive, and visually refined user interfaces with clean structure, modern styling, and smooth user interactions across devices.</p>
       <li>Back-end: Python</li>
+      Developing logical, efficient backend processes, handling data operations, and creating scalable systems that support application functionality.
       <li>Flutter</li>
+      Creating cross-platform mobile applications from a single codebase, delivering consistent performance and UI across Android and iOS platforms.
       <li>Responsive and Accessible Design</li>
+      Designing inclusive, device-adaptive interfaces that prioritize usability, accessibility standards, and seamless user experiences for all users.
     </ul>
   </div>
+
+  <div class="section">
+    <h2>Prompt Engineer</h2>
+    <p>I specialize in designing, structuring, and optimizing prompts that enable AI systems to produce accurate, context-aware, and high-quality outputs. My work focuses on translating complex human intent into clear, well-defined instructions that guide large language models toward reliable reasoning, creativity, and task execution.
+
+      I approach prompt engineering as both a technical and creative discipline. On the technical side, I apply structured prompting techniques such as role assignment, step-by-step reasoning, constraint definition, and output formatting to improve consistency, precision, and usability of AI responses. On the creative side, I experiment with tone, perspective, and abstraction to unlock innovative outputs for content creation, ideation, and design support.
+      
+      My experience includes building prompts for:
+      <ul>
+      <li>Content generation (articles, captions, scripts, summaries)</li>
+      <li>Code assistance and debugging workflows</li>
+      <li>/UX ideation and user-centric design exploration</li>
+      <li>Research, analysis, and information synthesis</li>
+      <li>Automation of repetitive tasks and productivity optimization</li>
+      </ul>
+      
+      </p>
+  </div>
+
+  <div class="section">
+    <h2>Graphic Design</h2>
+    <p>I specialize in creating visually compelling and purpose-driven designs that communicate ideas clearly, consistently, and effectively. My approach to graphic design goes beyond aesthetics—I focus on visual storytelling, brand coherence, and strategic communication to ensure every design delivers meaning and impact.
+
+      I work with core design principles such as layout, typography, color theory, hierarchy, and balance to produce clean, modern, and engaging visuals. Whether designing for digital platforms or print, I prioritize clarity, usability, and visual harmony while maintaining a strong creative identity tailored to the brand or project.
+      
+      My graphic design experience includes:
+      <ul>
+      <li>Brand identity and visual systems</li>
+      <li>Social media graphics and digital marketing assets</li>
+      <li>UI visuals and interface graphics</li>
+      <li>Posters, banners, and promotional materials</li>
+    </ul>
+      </p>
+  </div>
+
+
   <div class="section">
     <h2>Tools</h2>
     <p>Tools I'm Conversant With:</p>
     <ul>
-      <li><b>Figma</b></li>
-      <p>Skilled in designing clean UI/UX mockups, wireframes, and interactive prototypes.</p>
-  
-      <li><b>VS Code</b></li>
-      <p>My go-to code editor, customized for productivity with extensions and Git integration.</p>
-  
-      <li><b>Git & GitHub</b></li>
-      <p>Familiar with version control, branching, and collaborative workflows.</p>
-  
-      <li><b>Canva</b></li>
-      <p>Handy for designing quick visuals, social media posts, and UI concepts.</p>
-  
-      <li><b>Adobe Photoshop</b></li>
-      <p>Experienced in photo editing, web mockups, banner designs.</p>
-  
-      <li><b>Adobe Lightroom</b></li>
-      <p>Proficient in photo enhancement, color grading, and professional image corrections.</p>
+      <li><b>Figma</b> — Designing clean UI/UX mockups, wireframes, and interactive prototypes.</li>
+      <li><b>VS Code</b> — My go-to code editor for productivity with extensions and Git integration.</li>
+      <li><b>Git & GitHub</b> — Version control, branching, and collaborative workflows.</li>
+      <li><b>Canva</b> — Quick visuals, social media posts, and UI concepts.</li>
+      <li><b>Adobe Photoshop</b> — Photo editing, web mockups, banners.</li>
+      <li><b>Adobe Lightroom</b> — Photo enhancement, color grading, image corrections.</li>
+      <li><b>ChatGPT</b> — AI-powered assistant for ideation, coding, and automation.</li>
+      <li><b>Gemini</b> — AI tool for text generation and creative content support.</li>
+      <li><b>Workik</b> — Platform for designing websites and templates quickly.</li>
+      <li><b>Claude</b> — AI assistant for research, content generation, and workflow management.</li>
     </ul>
-  
-    <!-- Tool Logos -->
+
     <div class="tool-logos">
       <img src="figma.png" alt="Figma" />
       <img src="logo.png" alt="VS Code" />
       <img src="github.png" alt="GitHub" />
       <img src="photoshop.png" alt="Photoshop" />
       <img src="lightroom.png" alt="Lightroom" />
+      <img src="canva.png" alt="canva" />
+      <img src="chatgpt.png" alt="ChatGPT" />
+      <img src="gemini.png" alt="Gemini" />
+      <img src="workik.png" alt="Workik" />
+      <img src="claude.png" alt="Claude" />
     </div>
   </div>
+
   <div class="section">
     <h2>See My Work</h2>
     <div class="portfolio-links">
