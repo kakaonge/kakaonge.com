@@ -3,226 +3,282 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaka Onge - Creative Developer</title>
+  <title>Kaka Onge — Creative Developer</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #ffcc00; /* Deep yellow */
-      color: black;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      overflow-x: hidden;
+    :root{
+      --primary:#b31a1a;
+      --primary-dark:#8f1212;
+      --dark:#111;
+
+      --glass:rgba(255,255,255,.38);
+      --blur:blur(18px);
+
+      --bg1:#ffe680;
+      --bg2:#ffcc00;
+
+      /* RED BUTTON GRADIENTS */
+      --red-grad:linear-gradient(135deg,#b31a1a);
+      --red-grad-hover:linear-gradient(135deg,#d11f1f);
     }
 
-    /* Loader Styles */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: white; /* White background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    #loader img {
-      width: 100px;  /* Bigger logo */
-      height: 100px;
-      animation: spin 2s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    /* Main Content (hidden until loader finishes) */
-    #content {
-      display: none;
-      flex: 1;
-      width: 100%;
+    body{
+      font-family:'Poppins',sans-serif;
+      background:radial-gradient(circle at top,var(--bg1),var(--bg2) 65%);
+      color:var(--dark);
+      min-height:100vh;
+      overflow-x:hidden;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
-      font-weight: 600;
-      flex-wrap: wrap;
+    /* ===== LOADER ===== */
+    #loader{
+      position:fixed;
+      inset:0;
+      background:#fff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
     }
-    .branding {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    #loader img{
+      width:90px;
+      animation:spin 1.5s linear infinite;
     }
-    .branding img {
-      height: 40px;
-      width: 40px;
-      object-fit: cover;
-      border-radius: 50%;
+    @keyframes spin{to{transform:rotate(360deg)}}
+    #content{display:none;}
+
+    /* ===== HEADER ===== */
+    header{
+      padding:1.6rem 2rem;
+      display:flex;
+      align-items:center;
+    }
+    .branding{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+    }
+    .branding img{
+      width:42px;
+      height:42px;
+      border-radius:50%;
     }
 
-    .main {
-      padding: 2rem;
-      text-align: center;
-      max-width: 1000px;
-      margin: 0 auto;
-      flex: 1;
+    /* ===== MAIN ===== */
+    .main{
+      max-width:1100px;
+      margin:auto;
+      padding:2rem 1.5rem 3.5rem;
+      text-align:center;
+      animation:fadeUp .9s ease forwards;
     }
-    .headline {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 700;
-      font-size: 3rem;
-      color: #b31a1a;
-      animation: fadeInUp 1s ease-out forwards;
+
+    /* ===== PROFILE ===== */
+    .profile-wrapper{
+      display:flex;
+      justify-content:center;
+      margin-bottom:1.6rem;
     }
-    .designer-text {
-      font-size: 2.8rem;
-      color: #b31a1a;
-      animation: fadeInUp 2s ease-out forwards;
-      font-weight: 700;
+    .profile-pic{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      overflow:hidden;
+      box-shadow:0 25px 55px rgba(0,0,0,.28);
+      animation:float 4.5s ease-in-out infinite;
     }
-    .roles {
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-      color: #444;
+    .profile-pic img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
+    @keyframes float{50%{transform:translateY(-12px)}}
+
+    /* ===== TEXT ===== */
+    .headline{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.6rem;
+      font-size:3.4rem;
+      font-weight:700;
+      color:var(--primary);
+      margin-top:.8rem;
+    }
+    .designer-text{font-size:3.1rem;opacity:.9;}
+    .roles{margin-top:.7rem;font-size:.95rem;opacity:.85;}
+
+    /* ===== AVAILABILITY WITH PULSE DOT ===== */
     .availability {
-      margin-top: 1rem;
-      color: #b31a1a;
-      font-weight: bold;
+      margin-top:.9rem;
+      font-weight:700;
+      color:var(--primary);
     }
-    .description {
-      max-width: 700px;
-      margin: 2rem auto;
-      font-size: 1rem;
-      text-align: center;
-      color: #222;
+    .availability .dot {
+      display:inline-block;
+      margin-right:6px;
+      animation: pulse-dot 1.2s infinite;
     }
-    .buttons {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .btn {
-      background: red;
-      color: #fff;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: bold;
-    }
-    .btn:hover {
-      background: darkred;
+    @keyframes pulse-dot {
+      0% { transform: scale(1); opacity:1; }
+      50% { transform: scale(1.4); opacity:0.5; }
+      100% { transform: scale(1); opacity:1; }
     }
 
-    /* Socials */
-    .socials {
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .socials a {
-      margin: 0 10px;
-      color: black;
-      font-size: 1.5rem;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .socials a:hover {
-      color: red;
+    /* ===== GLASS CARD ===== */
+    .description{
+      margin:2.4rem auto;
+      max-width:740px;
+      font-size:1.05rem;
+      line-height:1.8;
+      padding:1.9rem 2.1rem;
+      border-radius:26px;
+      box-shadow:0 30px 65px rgba(0,0,0,.18);
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* ===== RED CURVY BUTTONS (NO SHADOW) ===== */
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:1.6rem;
+      flex-wrap:wrap;
+      margin-top:2.8rem;
     }
-    @media (max-width: 600px) {
-      .headline {
-        font-size: 2rem;
-        flex-direction: column;
-      }
-      .designer-text {
-        font-size: 2.2rem;
-      }
+
+    .btn{
+      padding:1.05rem 2.8rem;
+      border-radius:9999px;
+      font-weight:700;
+      font-size:1rem;
+      text-decoration:none;
+      color:#fff;
+      background:var(--red-grad);
+      transition:
+        transform .25s cubic-bezier(.34,1.56,.64,1),
+        background .25s ease;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      background:var(--red-grad-hover);
+      transform:scale(1.04);
+    }
+
+    .btn:active{
+      transform:scale(.97);
+    }
+
+    /* ===== SOCIALS ===== */
+    .socials{
+      padding:2.3rem 0 2.8rem;
+      display:flex;
+      justify-content:center;
+      gap:22px;
+    }
+    .socials img{
+      width:28px;
+      opacity:.85;
+      transition:.3s ease;
+    }
+    .socials img:hover{
+      transform:scale(1.25) rotate(-6deg);
+      opacity:1;
+    }
+
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(28px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @media(max-width:600px){
+      .headline{font-size:2.3rem}
+      .designer-text{font-size:2.1rem}
+      .profile-pic{width:150px;height:150px}
     }
   </style>
 </head>
+
 <body>
-  <!-- Loader -->
-  <div id="loader">
-    <img src="favicon.ico" alt="Loading Logo">
+
+<div id="loader">
+  <img src="favicon.ico" alt="Loading">
+</div>
+
+<div id="content">
+
+<header>
+  <div class="branding">
+    <img src="favicon.ico" alt="">
+    <span>Kaka Onge</span>
   </div>
+</header>
 
-  <!-- Main Content -->
-  <div id="content">
-    <header>
-      <div class="branding">
-        <img src="favicon.ico" alt="Kaka Onge Logo" />
-        <div>Kaka Onge</div>
-      </div>
-    </header>
+<main class="main">
 
-    <main class="main">
-      <div class="headline">
-        <span>Creative</span>
-        <span>Developer</span>
-        <span>/</span>
-        <span class="designer-text">Designer</span>
-      </div>
-      <div class="roles">Developer · UI/UX Designer · Photographer · Freelancer</div>
-      <div class="availability">● Available for work</div>
-      <div class="description">
-        I am a developer and UI/UX designer based in Nairobi, Kenya. Are you looking for a creative developer? Then rely on me for design, development, and digital product management. As a freelancer, I also collaborate with creative agencies.
-      </div>
-      <div class="buttons">
-        <a href="About Me.html"><button class="btn">About Kaka Onge</button></a>
-        <a href="contactme.html"><button class="btn">Get in Touch</button></a>
-      </div>
-    </main>
-
-    <div class="socials">
-      <a href="https://x.com/Kakaonge" title="Twitter"><img src="twitter.png" width="25" height="25"></a>
-      <a href="https://www.instagram.com/kakaonge/" title="Instagram"><img src="instagram.png" width="25" height="25"></a>
-      <a href="https://ke.linkedin.com/in/kaka-onge" title="LinkedIn"><img src="linkedin.png" width="25" height="25"></a>
-      <a href="https://github.com/kakaonge" title="Github"><img src="github.png" width="25" height="25"></a>
+  <div class="profile-wrapper">
+    <div class="profile-pic">
+      <img src="DSC00116.jpg" alt="Kaka Onge">
     </div>
   </div>
 
-  <script>
-    // Show loader for 3 seconds
-    window.onload = function() {
-      setTimeout(function(){
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("content").style.display = "block";
-      }, 3000); // 3 seconds
-    };
-  </script>
+  <div class="headline">
+    <span>Creative</span>
+    <span>Developer</span>
+    <span>/</span>
+    <span class="designer-text">Designer</span>
+  </div>
+
+  <div class="roles">
+    Developer · UI/UX Designer · Photographer · Freelancer
+  </div>
+
+  <div class="availability">
+    <span class="dot">●</span> Available for work
+  </div>
+
+  <div class="description">
+    I’m a creative developer and UI/UX designer based in Nairobi, Kenya, crafting digital experiences that are visually striking, functional, and user-centered. I design and build websites, apps, and interactive interfaces, blending creativity with technical precision. Collaborating with agencies, startups, and brands, I turn ideas into polished digital products that engage users,
+     streamline experiences, and deliver measurable impact.
+  </div>
+
+  <div class="buttons">
+    <a href="About Me.html" class="btn">About Me</a>
+    <a href="contactme.html" class="btn">Get in Touch</a>
+    <a href="blog.html" class="btn">Read My Blog</a>
+  </div>
+
+</main>
+
+<div class="socials">
+  <a href="https://x.com/Kakaonge"><img src="twitter.png"></a>
+  <a href="https://www.instagram.com/kakaonge/"><img src="instagram.png"></a>
+  <a href="https://ke.linkedin.com/in/kaka-onge"><img src="linkedin.png"></a>
+  <a href="https://github.com/kakaonge"><img src="github.png"></a>
+</div>
+
+</div>
+
+<script>
+  window.onload = () => {
+    const loader = document.getElementById("loader");
+    const content = document.getElementById("content");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      content.style.display = "block";
+    }, 1500);
+  };
+</script>
+
 </body>
 </html>
-
