@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ideas That Inspire & Create</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0a0c10;
+      --panel-dark: #12161b;
+      --text-white: #ffffff;
+      --text-dim: #94a3b8;
+      --accent-cyan: #00d2ff;
+      --accent-orange: #ff9d42;
+      --border: rgba(255,255,255,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-cyan), #fff);
+      z-index: 3000;
+    }
+
+    .navbar {
+      background: rgba(10,12,16,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      margin: 20px auto;
+      width: 95%;
+      position: sticky;
+      top: 20px;
+      z-index: 1000;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 25px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      background: rgba(255,255,255,0.05);
+      padding: 8px 15px;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+    }
+
+    .search-bar input {
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 110px 0 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(0,210,255,0.12), transparent 60%);
+      animation: floatGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      from { transform: translateY(0); }
+      to { transform: translateY(-40px); }
+    }
+
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--accent-cyan), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--text-dim);
+      font-size: 1.1rem;
+    }
+
+    .featured-card {
+      background: var(--panel-dark);
+      border-radius: 28px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin-bottom: 50px;
+      padding: 25px;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .tag-pill {
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: var(--accent-cyan);
+      color: #000;
+      font-size: .75rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    .featured-info h2 {
+      font-size: 2rem;
+      margin: 15px 0;
+    }
+
+    .featured-info p {
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .author img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+
+    .read-more, .like-btn {
+      color: var(--accent-cyan);
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .like-btn {
+      margin-left: 20px;
+    }
+
+    @media(max-width:900px){
+      .hero h1{font-size:3rem}
+      .nav-links{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="reading-progress"></div>
+
+<nav class="navbar">
+  <div class="container nav-content">
+    <ul class="nav-links">
+      <li><a href="#">Photography</a></li>
+      <li><a href="#">Tech</a></li>
+      <li><a href="#">Creative</a></li>
+      <li><a href="#">Music</a></li>
+    </ul>
+    <div class="search-bar">
+      <i class="fa fa-search"></i>
+      <input placeholder="Search posts..." />
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <h1>Welcome<span class="gradient-text"> to My Blogs</span></h1>
+    <p>Technology, creativity & AI insights all in one space.</p>
+  </div>
+</header>
+
+<section class="container">
+  <div class="featured-card">
+    <div class="featured-info">
+      <span class="tag-pill">Tech</span>
+      <h2>NotebookLM: AI Notebook Changing How Students Learn</h2>
+      <p>NotebookLM is Google’s AI-powered notebook that helps students and researchers summarize, interact with, and understand large volumes of study material quickly. By uploading PDFs, slides, or notes, you can ask the AI questions, generate flashcards, and create interactive study guides — all without coding.</p>
+      <div class="author">
+        <img src="DSC00116.jpg">
+        <span>Kaka Onge • 3 min read</span>
+      </div>
+      <a class="read-more" href="Notebooklm.html">Read Full Article →</a>
+      <span class="like-btn" id="likeBtn"><i class="fa-regular fa-thumbs-up"></i> Like</span>
+    </div>
+  </div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const height = document.body.scrollHeight - window.innerHeight;
+    document.querySelector('.reading-progress').style.width =
+      (scrolled / height) * 100 + '%';
+  });
+
+  // Like button functionality
+  const likeBtn = document.getElementById('likeBtn');
+  let liked = false;
+  likeBtn.addEventListener('click', () => {
+    liked = !liked;
+    likeBtn.innerHTML = liked ? '<i class="fa-solid fa-thumbs-up"></i> Liked' : '<i class="fa-regular fa-thumbs-up"></i> Like';
+  });
+</script>
+
+</body>
+</html>
